@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace GenericsListImplementation
+{
+    public interface Iperson
+    {
+        Guid Person_id { get; }
+        string Person_name { get; set; }
+        string Person_age { get; set; }
+        string Person_city { get; set; }
+        DateTime person_add { get; set; }
+        string Person_no { get; set; }
+    }
+}

@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EncapsulationExp
+{
+    
+    class EncapsulationClass
+    {
+       static  bool chk;
+        private int  transectionBalance;
+        private int balnce;
+        int balance;
+       public EncapsulationClass()
+        {
+            chk = true;
+            balance = 0;
+        }
+        public int Transection
+        {
+            get
+            {
+                return this.transectionBalance;
+            }
+            set
+            {
+                if (value< 1)
+                {
+                    Console.WriteLine("YOU ENTERED WRONG TRANSECTION...");
+                    chk = false;
+                }
+                else
+                {
+                    this.transectionBalance = value;
+                }
+            }
+        }
+
+        public int Balance
+        {
+            get
+            {
+                return this.balnce;
+            }
+            set
+            {
+                balnce = value;
+            }
+        }
+
+        public void checkbalance()
+        {
+            Console.WriteLine("YOUR CURRENT BALNCE IS:"+ balnce);
+        }
+
+        public int deposite()
+        {
+            if (chk == true)
+            {
+                balance = balance + transectionBalance;
+                balnce = balance;
+                Console.WriteLine("YOUR DEPOSITE TRASECTION HAVE BEEN SUCCESFULLY DONE...");
+            }
+            return 0;
+        }
+
+        public int withdraw()
+        {
+            if ((Balance < 1) || (transectionBalance > Balance))
+            {
+                Console.WriteLine("SORRY YOU HAVE INSUFFICENT BALANCE FOR THIS TRANSECTION");
+            }
+            else
+            {
+                balance = balance - transectionBalance;
+                balnce = balance;
+                Console.WriteLine("YOUR WITHDRAW TRASECTION HAVE BEEN SUCCESFULLY DONE...");
+            }
+            return 0;
+
+        }
+
+        
+    }
+}

@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace GenericsListImplementation
+{
+    class Person : Iperson
+    {
+        public Person(string name,string age,string city,DateTime date,string code)
+        {
+           
+            Person_name = name;
+            Person_age = age;
+            Person_city = city;
+            person_add = date;
+            Person_id = Guid.NewGuid();
+            Person_no = code;
+        }
+        public Guid Person_id { get; private set; }
+
+        public string Person_name  { get; set; } 
+        public string Person_age { get; set; }
+        public string Person_city { get; set; }
+        public DateTime person_add { get; set; }
+        public string Person_no { get; set; }
+        public override string ToString()
+        {
+            return $"Person id:: {Person_id}----Person Name::{Person_name}----Person Age::{Person_age}" +
+                $"Person city::{Person_city}----Person Number::{Person_no}---Person adding Date::{person_add}";
+        }
+
+    }
+}

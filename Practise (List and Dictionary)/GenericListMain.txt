@@ -1,0 +1,96 @@
+using System;
+
+namespace GenericsListImplementation
+{
+    class GenericListMain
+    {
+        static void Main(string[] args)
+        {
+            Iperson P;
+           GenericListHandler hr = new GenericListHandler();
+            DictionaryHandler hr1 = new DictionaryHandler();
+            bool chk = true;
+            bool check = true;
+            bool chik = true;
+            do
+            {
+                Console.WriteLine("1.for List---- 2.for Dictionary");
+                int chi = Int32.Parse(Console.ReadLine());
+                if(chi==1)
+                {
+                    do
+                    {
+                        Console.WriteLine("List implementation");
+                        Console.WriteLine("1.for add ---- 2.for display");
+                        int ch = Int32.Parse(Console.ReadLine());
+                        if (ch == 1)
+                        {
+                            Console.WriteLine("Enter Person name...");
+                            string name = Console.ReadLine();
+                            Console.WriteLine("Enter Person age...");
+                            string age = Console.ReadLine();
+                            Console.WriteLine("Enter Person city...");
+                            string city = Console.ReadLine();
+                            Console.WriteLine("Enter Person no...");
+                            string No = Console.ReadLine();
+                            P = new Person(name, age, city, DateTime.Now, No);
+                            hr.AddPerson(P);
+
+                        }
+                        else
+                        if (ch == 2)
+                        {
+                            hr.displayAll();
+                        }
+                        else if (ch == 3)
+                        {
+                            Iperson p = new Person(null, null, null, DateTime.Now, null);
+                            hr.Remove(p);
+                        }
+                        else
+                        {
+                            chk = false;
+                        }
+                    } while (chk);
+                }
+                else if(chi==2)
+                {
+                    do
+                    {
+                        Console.WriteLine("Dictionary implementation");
+                        Console.WriteLine("1.for add ---- 2.for display");
+                        int choice = Int32.Parse(Console.ReadLine());
+                        if(choice==1)
+                        {
+                            Console.WriteLine("Enter Person name...");
+                            string name = Console.ReadLine();
+                            Console.WriteLine("Enter Person age...");
+                            string age = Console.ReadLine();
+                            Console.WriteLine("Enter Person city...");
+                            string city = Console.ReadLine();
+                            Console.WriteLine("Enter Person no...");
+                            string No = Console.ReadLine();
+                            P = new Person(name, age, city, DateTime.Now, No);
+                            hr1.D_AddPerson(No, P);
+                        }
+                        else if(choice==2)
+                        {
+                            hr1.DictionaryDisplay();
+
+                        }else
+                        {
+                            chik = false;
+                        }
+
+                    } while (chik);
+                }
+                else
+                {
+                    check = false;
+                }
+
+            } while (check);
+           
+        }
+    }
+}

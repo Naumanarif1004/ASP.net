@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace GenericsListImplementation
+{
+    public sealed class DictionaryHandler
+    {
+        private readonly IDictionary<string ,Iperson> Person_Dictionary;
+            public DictionaryHandler()
+        {
+            Person_Dictionary = new Dictionary<string, Iperson>();
+        }
+
+        public void D_AddPerson(string c,Iperson obj)
+        {
+            if(obj==null)
+            {
+                throw new ArgumentNullException("Null data found");
+            }
+
+            Person_Dictionary.Add(c, obj);
+        }
+
+        public void DictionaryDisplay()
+        {
+            foreach(var item in Person_Dictionary)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+}

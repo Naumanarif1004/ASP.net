@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace EncapsulationExp
+{
+    class EncapsulationMainC
+    {
+        static void Main(string[] args)
+        {
+
+            bool chk = true;
+            EncapsulationClass transection = new EncapsulationClass();
+            
+            Console.WriteLine("================================");
+            Console.WriteLine("TRANSECTION MENU");
+            Console.WriteLine("-----------------");
+            Console.WriteLine("1. CHECK BALANCE");
+            Console.WriteLine("3. DEPOSITE ");
+            Console.WriteLine("2. WITHDRAW ");
+            Console.WriteLine("------------------");
+            Console.WriteLine("================================");
+            do
+            {
+                Console.WriteLine("ENTER YOUR CHOICE...");
+                int ch = Convert.ToInt32(Console.ReadLine());
+
+                switch (ch)
+                {
+                    case 1:
+                        transection.checkbalance();
+                        break;
+
+                    case 2:
+
+                        Console.WriteLine("ENTER AMOUNT FOR DEPOSITE TRANSECTION...");
+                        int tamount = Convert.ToInt32(Console.ReadLine());
+                        transection.Transection = tamount;
+                        transection.deposite();
+                        break;
+                    case 3:
+                        Console.WriteLine("ENTER AMOUNT FOR WITHDRAW TRANSECTION...");
+                        int tamount1 = Convert.ToInt32(Console.ReadLine());
+                        transection.Transection = tamount1;
+                        transection.withdraw();
+                        break;
+                    default:
+                        chk = false;
+                        break;
+                }
+
+            } while (chk == true);
+        }
+
+    }
+}

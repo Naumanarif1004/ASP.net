@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace GenericsListImplementation
+{
+    public sealed class GenericListHandler
+    {
+        private readonly IList<Iperson> _Person;
+
+        public GenericListHandler()
+        {
+            _Person = new List<Iperson>();
+        }
+
+        public void AddPerson(Iperson obj)
+        {
+            var person = obj as Iperson;
+            if (person == null)
+            {
+                throw new ArgumentNullException("Null data found");
+            }
+            _Person.Add(person);
+            Console.WriteLine("Person added sucessfullllly");
+        }
+
+        public void displayAll()
+        {
+            foreach( var item in _Person)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        public void Remove(Iperson name)
+        {
+            if(name==null)
+            {
+                throw new ArgumentNullException("null data found");
+            }
+            _Person.Remove(name);
+        }
+
+    }
+}
